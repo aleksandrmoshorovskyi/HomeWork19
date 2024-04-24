@@ -8,19 +8,32 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var model: ListModel!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBAction func getButtonAction(_ sender: Any) {
-        getData()
+        //getData()
+        
+        activityIndicator.startAnimating()
+        
+        model.loadData()
+        print("loadData")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.hidesWhenStopped = true
+        
+        model = ListModel()
+        model.delegate = self
     }
 
     func getData() {
         
-        let urlString = "https://reqres.in/api/unknown"
+        let urlString = Constants.urlStringGetList
         
         guard let url = URL(string: urlString) else { return }
         
@@ -46,55 +59,26 @@ class ViewController: UIViewController {
             
         }.resume()
     }
-}
-
-/*
- {
- page: 1,
- per_page: 6,
- total: 12,
- total_pages: 2,
- data: [
- {
- id: 1,
- name: "cerulean",
- year: 2000,
- color: "#98B2D1",
- pantone_value: "15-4020"
- },
- */
-
-struct TotalListResponse: Decodable {
     
-    var page: Int
-    var perPage: Int
-    var total: Int
-    var totalPages: Int
-    var list: [ListResponse]
-    
-    enum CodingKeys: String, CodingKey {
-         case page
-         case perPage = "per_page"
-         case total
-         case totalPages = "total_pages"
-         case list = "data"
-    }
-    
-    struct ListResponse: Decodable {
-     
-        var id: Int
-        var name: String
-        var year: Int
-        var color: String
-        var pantoneValue: String
+    func pushListViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let listViewController = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController
         
-        enum CodingKeys: String, CodingKey {
-             case id
-             case name
-             case year
-             case color
-             case pantoneValue = "pantone_value"
+        if let vc = listViewController {
+            vc.dataModel = model.listItems
+            navigationController?.pushViewController(vc, animated: true)
         }
+        
+        activityIndicator.stopAnimating()
     }
 }
 
+// MARK: - CatalogModelDelegate
+extension ViewController: ListModelDelegate {
+    
+    func dataDidLoad() {
+        
+        //contentView.tableView.reloadData()
+        pushListViewController()
+    }
+}
