@@ -10,6 +10,23 @@ import UIKit
 // MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let listDetailesViewController = storyboard.instantiateViewController(withIdentifier: "ListDetailesViewController") as? ListDetailesViewController
+        
+        if let vc = listDetailesViewController {
+            vc.dataModel = dataModel[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 60.0
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -27,8 +44,11 @@ extension ListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.textLabel?.text = String(dataModel[indexPath.row].id)
-        cell.detailTextLabel?.text = dataModel[indexPath.row].name
+        let item = dataModel[indexPath.row]
+        
+        cell.textLabel?.text = String(item.id)
+        cell.detailTextLabel?.text = item.name
+        cell.contentView.backgroundColor = UIColor(hex: item.color)
         
         return cell
     }

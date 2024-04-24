@@ -20,6 +20,9 @@
 		A8C522DE2BD944B600BF77D2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C522DD2BD944B600BF77D2 /* ListView.swift */; };
 		A8C522E02BD944CD00BF77D2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C522DF2BD944CD00BF77D2 /* ListViewController.swift */; };
 		A8C522E22BD9559F00BF77D2 /* ListViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C522E12BD9559F00BF77D2 /* ListViewController+TableView.swift */; };
+		A8C522E42BD9827200BF77D2 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C522E32BD9827200BF77D2 /* UIColor+ext.swift */; };
+		A8C522E82BD9850400BF77D2 /* ListDetailesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C522E72BD9850400BF77D2 /* ListDetailesView.swift */; };
+		A8C522EA2BD9851100BF77D2 /* ListDetailesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C522E92BD9851100BF77D2 /* ListDetailesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		A8C522DD2BD944B600BF77D2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		A8C522DF2BD944CD00BF77D2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A8C522E12BD9559F00BF77D2 /* ListViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+TableView.swift"; sourceTree = "<group>"; };
+		A8C522E32BD9827200BF77D2 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
+		A8C522E72BD9850400BF77D2 /* ListDetailesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailesView.swift; sourceTree = "<group>"; };
+		A8C522E92BD9851100BF77D2 /* ListDetailesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 			children = (
 				A8C522D52BD9383800BF77D2 /* Constants.swift */,
 				A8C522D72BD93A0800BF77D2 /* TotalListResponse.swift */,
+				A8C522E32BD9827200BF77D2 /* UIColor+ext.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -112,12 +119,30 @@
 		A8C522DA2BD93C0500BF77D2 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				A8C522E52BD984AE00BF77D2 /* Cells */,
+				A8C522E62BD984B600BF77D2 /* Detailes */,
 				A8C522DB2BD93C2200BF77D2 /* ListModel.swift */,
 				A8C522DD2BD944B600BF77D2 /* ListView.swift */,
 				A8C522DF2BD944CD00BF77D2 /* ListViewController.swift */,
 				A8C522E12BD9559F00BF77D2 /* ListViewController+TableView.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		A8C522E52BD984AE00BF77D2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A8C522E62BD984B600BF77D2 /* Detailes */ = {
+			isa = PBXGroup;
+			children = (
+				A8C522E72BD9850400BF77D2 /* ListDetailesView.swift */,
+				A8C522E92BD9851100BF77D2 /* ListDetailesViewController.swift */,
+			);
+			path = Detailes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,11 +217,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8C522DE2BD944B600BF77D2 /* ListView.swift in Sources */,
+				A8C522E42BD9827200BF77D2 /* UIColor+ext.swift in Sources */,
 				A8C522D62BD9383800BF77D2 /* Constants.swift in Sources */,
 				A8C522D32BD9377900BF77D2 /* DataLoaderService.swift in Sources */,
 				A8C522D82BD93A0800BF77D2 /* TotalListResponse.swift in Sources */,
 				A8C522C22BD8E26600BF77D2 /* ViewController.swift in Sources */,
 				A8C522E02BD944CD00BF77D2 /* ListViewController.swift in Sources */,
+				A8C522E82BD9850400BF77D2 /* ListDetailesView.swift in Sources */,
+				A8C522EA2BD9851100BF77D2 /* ListDetailesViewController.swift in Sources */,
 				A8C522DC2BD93C2200BF77D2 /* ListModel.swift in Sources */,
 				A8C522BE2BD8E26600BF77D2 /* AppDelegate.swift in Sources */,
 				A8C522E22BD9559F00BF77D2 /* ListViewController+TableView.swift in Sources */,

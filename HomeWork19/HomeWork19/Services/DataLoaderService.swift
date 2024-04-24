@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum CustomError: Error {
-    case someError
-}
-
 class DataLoaderService {
     
     func loadList(completion: @escaping (TotalListResponse?) -> ()) {

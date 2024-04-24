@@ -17,7 +17,7 @@ class ListModel {
     weak var delegate: ListModelDelegate?
     private let dataLoader = DataLoaderService()
     
-    var listItems: [ListResponse] = []
+    var listData: TotalListResponse!
     
     func loadData() {
      
@@ -28,7 +28,7 @@ class ListModel {
                 guard let self = self else { return }
                 
                 DispatchQueue.main.async {
-                    self.listItems = totalList?.list ?? []
+                    self.listData = totalList
                     self.delegate?.dataDidLoad()
                 }
             }

@@ -16,6 +16,12 @@ class ViewController: UIViewController {
     @IBAction func getButtonAction(_ sender: Any) {
         //getData()
         
+        /*
+         Відсутня впевненість у 100% правильності реалізації)))
+         Але ідея була саме в тому, щоб повністю отримати дані залишаючись на екрані ViewController
+         Потім передати вже готові дані у контролер з таблицею і показати його на екрані
+         */
+        
         activityIndicator.startAnimating()
         
         model.loadData()
@@ -65,7 +71,7 @@ class ViewController: UIViewController {
         let listViewController = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController
         
         if let vc = listViewController {
-            vc.dataModel = model.listItems
+            vc.dataModel = model.listData.list
             navigationController?.pushViewController(vc, animated: true)
         }
         
