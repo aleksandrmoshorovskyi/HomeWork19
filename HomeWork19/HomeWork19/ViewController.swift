@@ -14,13 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func getButtonAction(_ sender: Any) {
-        //getData()
-        
-        /*
-         Відсутня впевненість у 100% правильності реалізації)))
-         Але ідея була саме в тому, щоб повністю отримати дані залишаючись на екрані ViewController
-         Потім передати вже готові дані у контролер з таблицею і показати його на екрані
-         */
         
         activityIndicator.startAnimating()
         
@@ -67,6 +60,7 @@ class ViewController: UIViewController {
     }
     
     func pushListViewController() {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let listViewController = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController
         
@@ -74,8 +68,6 @@ class ViewController: UIViewController {
             vc.dataModel = model.listData.list
             navigationController?.pushViewController(vc, animated: true)
         }
-        
-        activityIndicator.stopAnimating()
     }
 }
 
@@ -84,7 +76,8 @@ extension ViewController: ListModelDelegate {
     
     func dataDidLoad() {
         
-        //contentView.tableView.reloadData()
+        activityIndicator.stopAnimating()
+        
         pushListViewController()
     }
 }
